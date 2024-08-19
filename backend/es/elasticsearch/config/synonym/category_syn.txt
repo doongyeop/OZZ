@@ -1,0 +1,52 @@
+상의,top
+상의=>상의,탑,블라우스,셔츠,티셔츠,니트웨어,브라탑,후드티
+블라우스,blouse
+티셔츠,티,t-shirt,tshirt
+니트,스웨터,풀오버,knit,knitwear,sweater,pullover
+셔츠,샤쓰,shirt,shirts
+브라탑,크롭탑,브라,브라렛,bralet,bralette
+후드티,후드,후드탑,hoodie
+슈트, suit
+
+하의,bottom
+하의=>하의,청바지,팬츠,스커트,레깅스,조거팬츠
+청바지,데님,진,jeans
+팬츠,바지,슬랙스,치노팬츠,pants,slacks,chinos
+스커트,치마,skirt
+레깅스,타이츠,스트레칭팬츠,leggings,tights
+조거팬츠,조거,조거바지,트랙팬츠,joggers,track pants
+
+아우터,outer,outwear
+아우터=>아우터,코트,재킷,점퍼,패딩,베스트,가디건,짚업
+코트,coat,
+재킷,자켓,블레이저,jacket,blazer
+점퍼,점프수트,jumper,jumpsuit
+패딩,padding
+베스트,조끼,vest,gilet
+가디건,cardigan
+짚업,집업,zip-up,zip up,zip
+
+원피스,one piece
+원피스=>원피스,드레스,점프수트
+드레스,dress
+점프수트,오버올,jumpsuit,overalls
+
+신발,shoes
+신발=>신발,운동화,구두,샌들,슬리퍼
+운동화,스니커즈,트레이너,러닝화,런닝화,sneakers,trainers,running shoes
+구두,드레스슈즈,로퍼,옥스포드,dress shoes,loafers,oxfords
+샌들,샌달,sandals,sandal
+슬리퍼,쪼리,slippers,flip-flops,flip flops,flip flop,flipflop
+
+악세서리=>악세서리,주얼리
+주얼리,보석,장신구,jewelry,gems,ornaments,accessories
+
+모자=>캡,비니,hat,hats
+캡,cap,caps
+비니,beanies,beany
+
+가방,bags
+가방=>가방,백팩,힙색,크로스백
+백팩,리큅,배낭,backpacks,rucksacks,knapsacks
+힙색,hip,hipsacks,hipsack
+크로스백,crossbag

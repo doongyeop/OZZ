@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  web:
+    build: ./ozz
+    container_name: ozz-frontend
+    ports:
+      - "3000:3000"

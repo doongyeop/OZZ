@@ -1,0 +1,25 @@
+퍼,fur,faux fur,모피
+니트,knit,knitted,스웨터
+무스탕,mouton
+레이스,lace,embroidered,장식
+스웨이드,suede,soft leather
+린넨,linen,flax,마
+앙고라,angora
+메시,mesh,netting,망사
+코듀로이,corduroy,cord,골덴
+플리스,fleece,polar,털
+시퀸/글리터,sequin,glitter
+네오프렌,neoprene,scuba,스쿠버
+데님,denim,jeans,청바지
+실크,silk
+저지,jersey
+스판덱스,spandex,elastane,엘라스틴
+트위드,tweed,patterned
+자카드,jacquard,brocade
+벨벳,velvet
+가죽,leather
+비닐,플라스틱,vinyl,pvc,plastic
+면,cotton,organic cotton,순면
+캐시미어,울,wool,cashemere,camel hair
+시폰,chiffon,lightweight
+합성섬유,synthetic,polyester,폴리에스터,폴리에스테르

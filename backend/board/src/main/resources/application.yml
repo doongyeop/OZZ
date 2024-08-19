@@ -1,0 +1,17 @@
+server:
+  port: ${BOARD_PORT:8084}
+
+spring:
+  application:
+    name: ozz-board
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+
+logging:
+  level:
+    root: info
+

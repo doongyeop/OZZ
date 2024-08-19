@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ozz-clothes
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ozz-test
+    username: root
+    password: ssafy
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,70 @@
+{
+  "analysis": {
+    "filter": {
+      "color_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/color_syn.txt",
+        "updateable": true
+      },
+      "pattern_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/pattern_syn.txt",
+        "updateable": true
+      },
+      "fit_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/fit_syn.txt",
+        "updateable": true
+      },
+      "style_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/style_syn.txt",
+        "updateable": true
+      },
+      "texture_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/texture_syn.txt",
+        "updateable": true
+      },
+      "season_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/season_syn.txt",
+        "updateable": true
+      },
+      "category_synonym_filter": {
+        "type": "synonym",
+        "synonyms_path": "synonym/category_syn.txt",
+        "updateable": true
+      },
+      "ngram_filter": {
+        "type": "ngram",
+        "min_gram": 1,
+        "max_gram": 2
+      }
+    },
+    "analyzer": {
+      "korean": {
+        "type": "custom",
+        "tokenizer": "nori_tokenizer",
+        "filter": [
+          "lowercase"
+        ]
+      },
+      "korean_search": {
+        "type": "custom",
+        "tokenizer": "nori_tokenizer",
+        "filter": [
+          "lowercase",
+          "category_synonym_filter",
+          "color_synonym_filter",
+          "fit_synonym_filter",
+          "pattern_synonym_filter",
+          "season_synonym_filter",
+          "style_synonym_filter",
+          "texture_synonym_filter"
+        ]
+      }
+    }
+  }
+}
+

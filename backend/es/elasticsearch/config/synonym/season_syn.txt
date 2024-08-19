@@ -1,0 +1,4 @@
+봄, spring
+여름, summer
+가을, autumn, fall
+겨울, winter

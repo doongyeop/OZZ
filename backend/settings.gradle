@@ -1,0 +1,1 @@
+include 'auth', 'user', 'file-server', 'clothes', 'eureka', 'gateway', 'library', 'favorite', 'board'

@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - spring-cloud-network
+
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ssafy
+      MYSQL_DATABASE: ozz
+      MYSQL_USER: ssafy
+      MYSQL_PASSWORD: ssafy
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - spring-cloud-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672" # management page port
+      - "5672:5672" # main port
+    networks:
+      - message-queue-network
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  spring-cloud-network:
+    driver: bridge
+  message-queue-network:
+    driver: bridge

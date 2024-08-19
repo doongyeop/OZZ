@@ -1,0 +1,68 @@
+version: '3.1'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock= true
+      - xpack.security.enabled= false
+      - xpack.security.enrollment.enabled=false
+      - xpack.license.self_generated.type=basic
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+      - ./es/elasticsearch/config/synonym/:/usr/share/elasticsearch/config/synonym/
+    networks:
+      - spring-cloud-network
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.14.3
+    container_name: logstash
+    environment:
+      - http.host=0.0.0.0
+      - http.port=9600
+      - xpack.monitoring.enabled=true
+      - xpack.monitoring.elasticsearch.hosts=["http://elasticsearch:9200"]
+      - path.data=/usr/share/logstash/data
+      - DB_USER=${DB_USER}
+      - DB_PW=${DB_PW}
+      - AI_PORT=${AI_PORT}
+    volumes:
+      - ./es/logstash/config/:/usr/share/logstash/config/
+      - ./es/logstash/pipeline/:/usr/share/logstash/pipeline/
+      - ./es/logstash/jars/mysql-connector-java-8.3.0.jar:/usr/share/logstash/logstash-core/lib/jars/mysql-connector-java-8.3.0.jar
+    ports:
+      - "5044:5044" # Beats input
+      - "9600:9600" # Logstash monitoring API
+    depends_on:
+      - elasticsearch
+    networks:
+      - spring-cloud-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.14.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_UTL : http://elasticsearch:9200
+    #      ELASTICSEARCH_USERNAME: ssafy
+    #      ELASTICSEARCH_PASSWORD: ssafy1234
+    depends_on:
+      - elasticsearch
+    networks:
+      - spring-cloud-network
+
+volumes:
+  es-data:
+    driver: local
+
+networks:
+  spring-cloud-network:
+    driver: bridge

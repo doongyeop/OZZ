@@ -1,0 +1,29 @@
+allprojects {
+    group = 'com.ssafy.ozz'
+    version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url = uri("file://${rootProject.projectDir}/library/build/repos")
+        }
+    }
+}
+
+task cleanAll {
+    dependsOn ':auth:clean', ':user:clean', ':file-server:clean', ':clothes:clean',
+            ':eureka:clean', ':gateway:clean', ':favorite:clean', ':board:clean'
+}
+
+task publishLibrary {
+    dependsOn 'library:publish'
+}
+
+task buildAll {
+    dependsOn cleanAll
+    dependsOn publishLibrary
+    dependsOn ':auth:bootJar', ':user:bootJar', ':file-server:bootJar', ':clothes:bootJar',
+            ':eureka:bootJar', ':gateway:bootJar', ':favorite:bootJar', ':board:bootJar'
+}

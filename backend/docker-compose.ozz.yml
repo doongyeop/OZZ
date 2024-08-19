@@ -1,0 +1,176 @@
+version: '3.1'
+
+services:
+  ozz-eureka:
+    container_name: ozz-eureka
+    build: ./eureka
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - spring-cloud-network
+
+  ozz-clothes:
+    container_name: ozz-clothes
+    build: ./clothes
+    ports:
+      - ${CLOTHES_PORT}:${CLOTHES_PORT}
+    environment:
+      CLOTHES_PORT: ${CLOTHES_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+      SPRING_ELASTICSEARCH_URLS: http://elasticsearch:9200
+      SPRING_ELASTICSEARCH_USERNAME: ${SPRING_ELASTICSEARCH_USERNAME}
+      SPRING_ELASTICSEARCH_PASSWORD: ${SPRING_ELASTICSEARCH_PASSWORD}
+      FASTAPI_URL: http://ozz-ai:${AI_PORT}
+      RABBITMQ_HOST: rabbitmq
+    networks:
+      - spring-cloud-network
+      - message-queue-network
+    depends_on:
+      - ozz-eureka
+      - ozz-file
+      - ozz-ai
+
+  ozz-file:
+    container_name: ozz-file
+    build: ./file-server
+    ports:
+      - ${FILE_PORT}:${FILE_PORT}
+    volumes:
+      - file-data:/data/uploads
+    environment:
+      FILE_PORT: ${FILE_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+      FILE_UPLOAD_DIR: /data/uploads
+    depends_on:
+      - ozz-eureka
+    networks:
+      - spring-cloud-network
+
+  ozz-auth:
+    container_name: ozz-auth
+    build: ./auth
+    ports:
+      - ${AUTH_PORT}:${AUTH_PORT}
+    environment:
+      AUTH_PORT: ${AUTH_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+      NAVER_REDIRECT_URL: http://${SERVER_HOST}:${AUTH_PORT}/login/oauth2/code/naver
+      KAKAO_REDIRECT_URL: http://${SERVER_HOST}:${AUTH_PORT}/login/oauth2/code/kakao
+      REDIS_HOST: redis
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - ozz-eureka
+
+  ozz-user:
+    container_name: ozz-user
+    build: ./user
+    ports:
+      - ${USER_PORT}:${USER_PORT}
+    environment:
+      USER_PORT: ${USER_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - ozz-eureka
+      - ozz-auth
+
+  ozz-ai:
+    container_name: ozz-ai
+    build: ./ai
+    environment:
+      - AI_PORT=${AI_PORT}
+      - RABBITMQ_HOST=rabbitmq
+      - CLOTHES_ENDPOINT=http://ozz-clothes:${CLOTHES_PORT}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - FILE_HOST=http://ozz-file:${FILE_PORT}
+    ports:
+      - ${AI_PORT}:${AI_PORT}
+    networks:
+      - message-queue-network
+      - spring-cloud-network
+
+  ozz-favorite:
+    container_name: ozz-favorite
+    build: ./favorite
+    ports:
+      - ${FAVORITE_PORT}:${FAVORITE_PORT}
+    environment:
+      FAVORITE_PORT: ${FAVORITE_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - ozz-eureka
+
+  ozz-board:
+    container_name: ozz-board
+    build: ./board
+    ports:
+      - ${BOARD_PORT}:${BOARD_PORT}
+    environment:
+      BOARD_PORT: ${BOARD_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      DB_URL: jdbc:mysql://mysql-db:3306/ozz
+      DB_USER: ${DB_USER}
+      DB_PW: ${DB_PW}
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - ozz-eureka
+
+  ozz-gateway:
+    container_name: ozz-gateway
+    build: ./gateway
+    ports:
+      - ${API_GATEWAY_PORT}:${API_GATEWAY_PORT}
+    environment:
+      API_GATEWAY_PORT: ${API_GATEWAY_PORT}
+      SPRING_PROFILES_ACTIVE: dev
+      EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE: http://ozz-eureka:8761/eureka/
+      GATEWAY_HOST: http://ozz-gateway:${API_GATEWAY_PORT}
+      AI_HOST: http://ozz-ai:${AI_PORT}
+    networks:
+      - spring-cloud-network
+    depends_on:
+      - ozz-ai
+      - ozz-file
+      - ozz-clothes
+      - ozz-auth
+      - ozz-user
+      - ozz-favorite
+      - ozz-board
+
+volumes:
+  file-data:
+    driver: local
+
+networks:
+  spring-cloud-network:
+    driver: bridge
+  message-queue-network:
+    driver: bridge

@@ -1,0 +1,18 @@
+무지,solid,plain,단색,single
+줄무늬,striped,stripe,stripes,스트라이프
+지그재그,zigzag,zig,zag,z-shape
+호피,leopard,레오파드
+지브라,zebra
+아가일,argyle
+도트,dot,polka
+페이즐리,paisley
+카모플라쥬,camouflage,camo,military,카모,군
+플로럴,floral,꽃무늬,flower,꽃
+레터링,lettering,letter,text,글자
+그래픽,graphic
+해골,skull
+타이다이,tie-dye,tie dye,타이 다이
+깅엄,gingham
+그라데이션,gradation,gradient,색상변형
+체크,check
+하운즈투스,houndstooth,하운드투스

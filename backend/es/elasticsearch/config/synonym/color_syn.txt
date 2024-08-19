@@ -1,0 +1,20 @@
+흰,흰색,화이트,white,weiß,blanc,bianco,눈색,아이보리
+검정,검은,블랙,black,schwarz,noir,nero,제트,오닉스
+회색,그레이,gray,grey,grau,gris,grigio,실버,슬레이트
+빨강,레드,red,rot,rouge,rosso,크림슨,스칼렛,빨간
+분홍,핑크,pink,rosa,rose,푸크시아,마젠타
+주황,주홍,오렌지,orange,arancione,탠저린,코랄,코럴
+베이지,beige,sand,연베이지
+노랑,옐로우,yellow,gelb,jaune,giallo,레몬,노란
+갈색,브라운,brown,braun,marron,marrone,체스트넛,코코아
+초록,그린,green,grün,vert,verde,에메랄드,올리브
+카키,khaki,kaki,올리브,샌드
+민트,mint,mintgrün,menthe,menta,아쿠아,티얼
+파랑,블루,blue,blau,bleu,blu,코발트,아쥬르,파란
+남색,네이비,navy,marineblau,marine,blu navy,프러시안
+하늘,스카이,sky,himmelblau,bleu ciel,azzurro,세루리안
+보라,퍼플,purple,lila,violet,viola,라벤더,자수정
+연보라,라벤더,lavender,lavendel,lavande,lavanda,라일락,모브
+와인,wine,weinrot,vin,vino,버건디,마룬
+네온,neon,néon,형광
+골드,gold,or,oro,골든

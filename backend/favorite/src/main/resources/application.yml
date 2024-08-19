@@ -1,0 +1,17 @@
+server:
+  port: ${FAVORITE_PORT:8083}
+
+spring:
+  application:
+    name: ozz-favorite
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+
+logging:
+  level:
+    root: info
+

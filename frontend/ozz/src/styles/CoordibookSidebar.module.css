@@ -1,0 +1,81 @@
+.sidebarGroup {
+  position: fixed;
+  bottom: -180px; /* 사이드바의 높이만큼 숨김 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 430px;
+  /* transition: bottom 0.3s ease-in-out; */
+  z-index: 1000;
+}
+
+.open {
+  bottom: 63px; /* 네비게이션 바 높이에 따라 조정 */
+}
+
+.toggleButtonOpen {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 20px;
+  background-color: #3e3e3e;
+  border: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #daf1a2;
+  cursor: pointer;
+}
+.toggleButtonClose {
+  position: absolute;
+  top: -76px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 20px;
+  background-color: #3e3e3e;
+  border: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #daf1a2;
+  cursor: pointer;
+}
+
+.sidebarContent {
+  background-color: #3e3e3e;
+  height: 180px;
+  overflow-y: auto;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #444;
+  color: #daf1a2;
+  font-size: large;
+}
+
+.coordibookList {
+  display: flex;
+  overflow-x: auto;
+  padding: 4px;
+  gap: 2px;
+}
+
+.coordiItem {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coordiItem img {
+  object-fit: cover;
+}

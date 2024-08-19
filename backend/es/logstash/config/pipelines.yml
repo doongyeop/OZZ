@@ -1,0 +1,4 @@
+- pipeline.id: clothes
+  path.config: "/usr/share/logstash/pipeline/logstash-clothes.conf"
+- pipeline.id: coordinate
+  path.config: "/usr/share/logstash/pipeline/logstash-coordinate.conf"

@@ -1,0 +1,76 @@
+.fittingContainer {
+  padding: 20px;
+}
+
+.clothingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 0px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.clothingItem {
+  position: relative;
+}
+
+.addButton,
+.removeButton {
+  position: absolute;
+  bottom: 40px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px;
+  border-color: #daf1a2;
+  background-color: #3e3e3e;
+  color: #daf1a2;
+  font-size: 20px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholderImage {
+  opacity: 0.2;
+}
+
+/* 각 아이템의 그리드 위치 지정 */
+.accessory {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.onepiece {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+}
+
+.top {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.outer {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.bottom {
+  grid-column: 2;
+  grid-row: 3 / span 2;
+}
+
+.shoes {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+.bag {
+  grid-column: 3;
+  grid-row: 5;
+}

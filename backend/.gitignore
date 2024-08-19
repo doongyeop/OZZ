@@ -1,0 +1,6 @@
+.gradle/*
+.env
+.idea/*
+
+prometheus/volume/*
+grafana/volume/*

@@ -1,0 +1,5 @@
+http.host: ${http.host}
+http.port: ${http.port}
+path.data: ${path.data}
+xpack.monitoring.elasticsearch.hosts: ${xpack.monitoring.elasticsearch.hosts}
+xpack.monitoring.enabled: ${xpack.monitoring.enabled}

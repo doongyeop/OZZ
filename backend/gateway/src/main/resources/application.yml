@@ -1,0 +1,149 @@
+server:
+  port: ${API_GATEWAY_PORT:8000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health, info
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+spring:
+  application:
+    name: ozz-gateway
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - ${FRONT_HTTP_HOST:http://localhost:3000}
+              - ${FRONT_HTTPS_HOST:https://localhost:3000}
+              - http://i11a804.p.ssafy.io:8080
+              - http://localhost:8080
+              - http://i11a804.p.ssafy.io:8000
+              - http://localhost:8000
+              - http://i11a804.p.ssafy.io
+              - https://i11a804.p.ssafy.io
+            allow-credentials: true
+            allowedHeaders: '*'
+            exposedHeaders:
+              - x-requested-with
+              - Authorization
+              - content-type
+              - credential
+              - X-AUTH-TOKEN
+              - X-CSRF-TOKEN
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - PATCH
+              - DELETE
+              - OPTIONS
+      routes:
+        - id: file-router
+          uri : lb://OZZ-FILE
+          predicates:
+            - Path=/api/file/**, /uploads/**
+        - id: file-swagger
+          uri : lb://OZZ-FILE
+          predicates:
+            - Path=/docs/ozz-file/**
+          filters:
+            - RewritePath=/docs/ozz-file/(?<path>.*), /$\{path}
+        - id: clothes-router
+          uri: lb://OZZ-CLOTHES
+          predicates:
+            - Path=/api/clothes/**, /api/categories/**, /api/coordinates/**
+        - id: clothes-swagger
+          uri : lb://OZZ-CLOTHES
+          predicates:
+            - Path=/docs/ozz-clothes/**
+          filters:
+            - RewritePath=/docs/ozz-clothes/(?<path>.*), /$\{path}
+        - id: user-router
+          uri : lb://OZZ-USER
+          predicates:
+            - Path=/api/users/**
+        - id: user-swagger
+          uri : lb://OZZ-USER
+          predicates:
+            - Path=/docs/ozz-user/**
+          filters:
+            - RewritePath=/docs/ozz-user/(?<path>.*), /$\{path}
+        - id: auth-router
+          uri : lb://OZZ-AUTH
+          predicates:
+            - Path=/api/auth/**, /login/**, /login, /oauth2/**
+        - id: auth-swagger
+          uri : lb://OZZ-AUTH
+          predicates:
+            - Path=/docs/ozz-auth/**
+          filters:
+            - RewritePath=/docs/ozz-auth/(?<path>.*), /$\{path}
+        - id: favorite-router
+          uri : lb://OZZ-FAVORITE
+          predicates:
+            - Path=/api/favorites/**
+        - id: favorite-swagger
+          uri : lb://OZZ-FAVORITE
+          predicates:
+            - Path=/docs/ozz-favorite/**
+          filters:
+            - RewritePath=/docs/ozz-favorite/(?<path>.*), /$\{path}
+        - id: board-router
+          uri : lb://OZZ-BOARD
+          predicates:
+            - Path=/api/boards/**, /api/boardlikes/**, /api/notifications/**
+        - id: board-swagger
+          uri : lb://OZZ-BOARD
+          predicates:
+            - Path=/docs/ozz-board/**
+          filters:
+            - RewritePath=/docs/ozz-board/(?<path>.*), /$\{path}
+        - id: ai-router
+          uri: ${AI_HOST}
+          predicates:
+            - Path=/api/ai/**
+          filters:
+            - RewritePath=/api/ai/(?<remaining>.*),/api/v1/$\{remaining}
+        - id: ai-swagger
+          uri: ${AI_HOST}
+          predicates:
+            - Path=/docs/ozz-ai/v3/api-docs
+          filters:
+            - RewritePath=/docs/ozz-ai/v3/api-docs,/openapi.json
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    use-root-path: true
+    enabled: true
+    path: /swagger-ui.html
+    urls:
+      - url: /docs/ozz-file/v3/api-docs
+        name: ozz-file
+      - url: /docs/ozz-clothes/v3/api-docs
+        name: ozz-clothes
+      - url: /docs/ozz-user/v3/api-docs
+        name: ozz-user
+      - url: /docs/ozz-auth/v3/api-docs
+        name: ozz-auth
+      - url: /docs/ozz-favorite/v3/api-docs
+        name: ozz-favorite
+      - url: /docs/ozz-board/v3/api-docs
+        name: ozz-board
+      - url: /docs/ozz-ai/v3/api-docs
+        name: ozz-ai
+
+jwt:
+  secret: ${JWT_SECRET:your-very-very-long-secret-key-that-is-at-least-32-bytes-long}
+  expiration: 3600000

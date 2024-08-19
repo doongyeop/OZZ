@@ -1,0 +1,38 @@
+server:
+  port: ${CLOTHES_PORT:8081}
+
+spring:
+  application:
+    name: ozz-clothes
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  elasticsearch:
+    uris: ${SPRING_ELASTICSEARCH_URLS:http://localhost:9200}
+    username: ${SPRING_ELASTICSEARCH_USERNAME:elastic}
+    password: ${SPRING_ELASTICSEARCH_PASSWORD:ssafy}
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  cloud:
+    stream:
+      defaultBinder: rabbit
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        data:
+          elasticsearch:
+            client:
+#              WIRE: TRACE
+
+
+fastapi:
+  url: ${FASTAPI_URL:http://localhost:5000}

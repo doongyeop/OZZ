@@ -1,0 +1,4 @@
+오버,루즈,loose,baggy,relaxed,oversized,extra loose,wide
+세미오버,세미루즈,semi over,semi loose,semi baggy,semi relaxed
+레귤러,일반,regular,standard,classic
+슬림,타이트,slim,fitted,skinny,trim,contoured,narrow
