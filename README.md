@@ -56,14 +56,16 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150px458?style=for-the-badge&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-003366?style=for-the-badge&logo=matplotlib&logoColor=white)  
+![Matplotlib](https://img.shields.io/badge/Matplotlib-003366?style=for-the-badge&logo=matplotlib&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)  
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
-**AI**
-
-[![Segformer](https://img.shields.io/badge/Segformer-00A6A6?style=for-the-badge&logo=dark&logoColor=white)](https://github.com/NVlabs/SegFormer)
-[![OpenAI](https://img.shields.io/badge/OpenAI-000000?style=for-the-badge&logo=openai&logoColor=white)](https://www.openai.com/)
+**AI**  
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-00A6A6?style=for-the-badge&logo=rabbitmq&logoColor=white)
+![Segformer](https://img.shields.io/badge/Segformer-00A6A6?style=for-the-badge&logo=dark&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-000000?style=for-the-badge&logo=openai&logoColor=white)
 
 **CI/CD**
 
@@ -142,4 +144,4 @@
 > <br><br>
 > 기획과 설계 단계에서 충분한 시간을 투자하고, 꼼꼼하게 문서화하는 과정이 초기에는 시간이 많이 걸리는 것처럼 느껴졌지만, 프로젝트를 흔들림 없이 진행하는 데 있어 매우 중요한 요소임을 다시 한번 깨달았습니다.
 > <br><br>
-> 처음 접해보는 Spring Security와 MSA에서 어려움이 있었지만, 팀원들의 도움으로 성공적으로 극복할 수 있었습니다.<br> 함께한 보연, 수한님, 종원, 혜인 그리고 하연이 정말 고생 많았고, 감사의 마음을 전하고 싶습니다. :>
+> 처음 접해보는 Spring Security와 MSA에서 어려움이 있었지만, 팀원들의 도움으로 성공적으로 극복할 수 있었습니다.<br> 함께한 보연, 종원, 혜인 그리고 하연이 정말 고생 많았고, 감사의 마음을 전하고 싶습니다. :>
