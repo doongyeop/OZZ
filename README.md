@@ -83,34 +83,40 @@
 
 ## 서비스 기능
 
-- 소셜 로그인
-  <br>
-  <img src='./img/Kakao Login.gif' width='150px'>
-  <br>
-- 개인 정보 변경
-  <br>
-  <img src='./img/Edit Profile.GIF' width='150px'>
-  <br>
-- 쇼핑몰 구매목록에서 옷 정보 가져와서 등록하기 (AI)
-  <br>
-  <img src='./img/Musinsa Crawling.gif' width='150px'>
-  <br>
-- 옷 직접 등록하기 (속성 추출하기, AI)
-  <br>
-  <img src='./img/AI Analysis.GIF' width='150px'>
-  <br>
-- 유의어 검색
-  <br>
-  <img src='./img/synonym search.gif' width='150px'>
-  <br>
-- 추천 코디 (AI)
-  <br>
-  <img src='./img/Coordi Recommendation.GIF' width='150px'>
-  <br>
-- 직접 코디해보기
-  <br>
-  <img src='./img/Virtaul Tryon.GIF' width='150px'>
-  <br>
+**소셜 로그인**
+<br>
+<img src='./img/Kakao Login.gif' width='150px'>
+<br>
+
+**개인 정보 변경**
+<br>
+<img src='./img/Edit Profile.GIF' width='150px'>
+<br>
+
+**쇼핑몰 구매목록에서 옷 정보 가져와서 등록하기 (AI)**
+<br>
+<img src='./img/Musinsa Crawling.gif' width='150px'>
+<br>
+
+**옷 직접 등록하기 (속성 추출하기, AI)**
+<br>
+<img src='./img/AI Analysis.GIF' width='150px'>
+<br>
+
+**유의어 검색**
+<br>
+<img src='./img/synonym search.gif' width='150px'>
+<br>
+
+**추천 코디 (AI)**
+<br>
+<img src='./img/Coordi Recommendation.gif' width='150px'>
+<br>
+
+**직접 코디해보기**
+<br>
+<img src='./img/Virtaul Tryon.GIF' width='150px'>
+<br>
 
 ## 후기
 
