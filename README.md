@@ -110,7 +110,7 @@
 
 **추천 코디 (AI)**
 <br>
-<img src='./img/Coordi Recommendation.gif' width='150px'>
+<img src='./img/Coordi Recommendation.GIF' width='150px'>
 <br>
 
 **직접 코디해보기**
